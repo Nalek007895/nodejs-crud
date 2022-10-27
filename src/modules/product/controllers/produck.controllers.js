@@ -31,11 +31,21 @@ const ProductControllers = {
         const { name, price } = req.body
         const updated = await ProductService.updateOne(id, { name, price })
         
-    
         res.status(200).json({
             success: true,
             data: updated
         })
+    },
+    deleteProduct: async (req, res) => {
+        const { id } = req.params
+        //const deleted = await ProductService.deleteOne(id, { name, price })
+        const deleted = await ProductService.deleteOne(id)
+
+        res.status(200).json({
+            success: true,
+            data: deleted
+        })
+        
     }
 }
 

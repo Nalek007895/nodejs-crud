@@ -9,7 +9,18 @@ const validator = createValidator({})
 
 ProductRouter.get('/', ProductControllers.getProduct)
 ProductRouter.get('/:id', ProductControllers.getProductById)
-ProductRouter.post('/', validator.body(CreateProductDto), ProductControllers.createProduct)
+ProductRouter.post('/',validator.body(CreateProductDto), ProductControllers.createProduct)
+
+ProductRouter.put('/:id',validator.body(UppdatProductDto), ProductControllers.uppdatProduct)
+//ProductRouter.put('/',validator.body(CreateProductDto), ProductControllers.createProduct)
+//ProductRouter.put('/:id',validator.body(DeleteProductDto), ProductControllers.deleteProduct)
+
+//ProductRouter.patch('/:id',validator.body(UppdatProductDto), ProductControllers.uppdatProduct)
+//ProductRouter.patch('/',validator.body(CreateProductDto), ProductControllers.createProduct)
 ProductRouter.patch('/:id',validator.body(UppdatProductDto), ProductControllers.uppdatProduct)
+
+ProductRouter.delete('/:id',validator.body(DeleteProductDto), ProductControllers.deleteProduct)
+//ProductRouter.delete('/',validator.body(CreateProductDto), ProductControllers.createProduct)
+//ProductRouter.delete('/:id',validator.body(UppdatProductDto), ProductControllers.uppdatProduct)
 
 export default ProductRouter

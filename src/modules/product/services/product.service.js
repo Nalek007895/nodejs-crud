@@ -12,6 +12,9 @@ const ProductService = {
     },
     updateOne: (id, payload) =>{
         return ProductModel.findOneAndUpdate({ _id: id } , { $set: payload } )
+    },
+    deleteOne: (id, payload) => {
+        return ProductModel.findOneAndDelete({ _id: id })
     }
 }
 
